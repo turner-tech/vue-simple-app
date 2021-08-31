@@ -1,5 +1,6 @@
 import { createApp, h } from 'vue'
 import {
+  Avatar,
   Layout,
   Button,
   Breadcrumb,
@@ -22,6 +23,7 @@ const app = createApp({
   render: () => h(App)
 })
 app.config.productionTip = false
+app.use(Avatar)
 app.use(Layout)
 app.use(Button)
 app.use(Breadcrumb)

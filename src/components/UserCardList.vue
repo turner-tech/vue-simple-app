@@ -1,10 +1,10 @@
 <template>
-  <div
-    :key="user.id"
-    v-for="user in users"
-    :style="{ display: block, marginLeft: auto, marginRight: auto }"
-  >
-    <UserCard :style="{ paddingTop: '15px', marginTop: '15px' }"></UserCard>
+  <div :key="user.id" v-for="user in users">
+    <UserCard
+      @delete-user="deleteUser"
+      :user="user"
+      :style="{ paddingTop: '15px', marginTop: '15px' }"
+    ></UserCard>
   </div>
 </template>
 
@@ -18,6 +18,12 @@ export default {
   },
   components: {
     UserCard
+  },
+  emits: ['delete-user'],
+  methods: {
+    deleteUser(userId) {
+      this.$emit('delete-user', userId)
+    }
   }
 }
 </script>

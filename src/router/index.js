@@ -7,6 +7,7 @@ import About from '../views/About'
 const routes = [
   {
     path: '/',
+    alias: '/home',
     name: 'Home',
     component: Home
   },

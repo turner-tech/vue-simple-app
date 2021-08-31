@@ -3,6 +3,7 @@
     <a-layout-header>
       <div className="site-layout-header" id="nav" :style="{ color: 'white' }">
         <router-link to="/">Home </router-link> |
+        <router-link to="/user">Users </router-link> |
         <router-link to="/task">Task </router-link> |
         <router-link to="/about">About</router-link>
       </div>
