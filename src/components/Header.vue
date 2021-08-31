@@ -8,17 +8,17 @@
 </template>
 
 <script>
-import Button from "./Button";
+import Button from './Button'
 
 export default {
-  name: "Header",
+  name: 'Header',
   components: {
-    Button,
+    Button
   },
   props: {
-    title: String,
+    title: String
   }
-};
+}
 </script>
 
 <style scoped></style>

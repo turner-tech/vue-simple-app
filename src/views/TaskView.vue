@@ -8,10 +8,10 @@
 <script>
 // @ is an alias to /src
 
-import Header from "../components/Header";
+import Header from '../components/Header'
 
 export default {
-  name: "TaskView",
-  components: { Header },
-};
+  name: 'TaskView',
+  components: { Header }
+}
 </script>

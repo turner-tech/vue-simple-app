@@ -4,17 +4,17 @@
 
 <script>
 export default {
-  name: "Button",
+  name: 'Button',
   props: {
     text: String,
-    color: String,
+    color: String
   },
   methods: {
     onClick() {
       console.log('clicked: ' + this.text)
     }
   }
-};
+}
 </script>
 
 <style scoped></style>
