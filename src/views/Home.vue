@@ -1,6 +1,7 @@
 <template>
-  <div class="home">
-    <h1>Home Page</h1>
+  <div class="home" :style="{ align: 'left' }">
+    <h1 :style="{ textAlign: 'left !important' }">Home Page</h1>
+    <a-divider dashed :style="{ borderTop: '1px solid' }" />
     <Header title="Task Tracker"></Header>
   </div>
 </template>

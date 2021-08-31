@@ -1,12 +1,18 @@
 <template>
   <a-layout>
     <a-layout-header>
-      <div className="site-layout-header" id="nav">
-        <router-link to="/">Home</router-link> |
+      <div className="site-layout-header" id="nav" :style="{ color: 'white' }">
+        <router-link to="/">Home </router-link> |
+        <router-link to="/task">Task </router-link> |
         <router-link to="/about">About</router-link>
       </div>
     </a-layout-header>
-    <a-layout-content>
+    <a-layout-content :style="{ padding: '0 50px', marginTop: '24px' }">
+      <!-- <a-breadcrumb :style="{ margin: '16px 0' }">
+        <a-breadcrumb-item>Home</a-breadcrumb-item>
+        <a-breadcrumb-item>List</a-breadcrumb-item>
+        <a-breadcrumb-item>App</a-breadcrumb-item>
+      </a-breadcrumb> -->
       <div className="site-layout-content">
         <router-view />
       </div> </a-layout-content

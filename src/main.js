@@ -2,6 +2,7 @@ import { createApp, h } from 'vue'
 import {
   Layout,
   Button,
+  Breadcrumb,
   Spin,
   Result,
   Card,
@@ -23,6 +24,7 @@ const app = createApp({
 app.config.productionTip = false
 app.use(Layout)
 app.use(Button)
+app.use(Breadcrumb)
 app.use(Spin)
 app.use(Result)
 app.use(Card)
