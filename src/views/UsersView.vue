@@ -8,14 +8,15 @@
     <h2 v-else>There Are Currently (0) Users</h2>
     <UserCardList @delete-user="deleteUser" :users="users"></UserCardList>
     <a-divider dashed :style="{ borderTop: '1px solid' }" />
-    <a-button @click="this.getData()">Add User</a-button>
+    <a-button @click="this.callGetRandomUser(this.users)">Add User</a-button>
     <a-button @click="this.deleteAllUsers">Delete All Users</a-button>
   </div>
 </template>
 
 <script>
 import UserCardList from '../components/UserCardList'
-import { get } from 'axios'
+import RandomUser from '../services/RandomUserService'
+// const RandomUserService = require('../services/RandomUserService')
 
 export default {
   name: 'UsersView',
@@ -30,54 +31,14 @@ export default {
     reload() {
       this.$forceUpdate()
     },
+    async callGetRandomUser() {
+      this.users = await RandomUser.getRandomUser(this.users)
+    },
     deleteAllUsers() {
       this.users = []
     },
     deleteUser(userId) {
       this.users = this.users.filter((user) => user.login.uuid !== userId)
-    },
-    async getData() {
-      try {
-        const response = await get('https://api.randomuser.me/').then(
-          (response) => response.data.results
-        )
-        // this.users = [...this.users, response[0]]
-        this.convertData(response)
-      } catch (error) {
-        console.log('Error retrieving data: ' + error)
-      }
-      this.reload()
-    },
-    convertData(users) {
-      try {
-        users.forEach(
-          (user) =>
-            (this.users = [
-              ...this.users,
-              {
-                gender: user.gender,
-                name: {
-                  title: user.name.title,
-                  first: user.name.first,
-                  last: user.name.last
-                },
-                email: user.email,
-                login: {
-                  uuid: user.login.uuid
-                },
-                phone: user.phone,
-                cell: user.cell,
-                picture: {
-                  large: user.picture.large,
-                  medium: user.picture.medium,
-                  thumbnail: user.picture.thumbnail
-                }
-              }
-            ])
-        )
-      } catch (error) {
-        console.log('Error forming data object: ' + error)
-      }
     }
   },
   created() {
