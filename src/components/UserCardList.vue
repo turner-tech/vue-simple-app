@@ -1,5 +1,5 @@
 <template>
-  <div :key="user.id" v-for="user in users">
+  <div :key="user.login.uuid" v-for="user in users">
     <UserCard
       @delete-user="deleteUser"
       :user="user"

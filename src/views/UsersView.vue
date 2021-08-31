@@ -41,11 +41,43 @@ export default {
         const response = await get('https://api.randomuser.me/').then(
           (response) => response.data.results
         )
-        this.users = [...this.users, response[0]]
+        // this.users = [...this.users, response[0]]
+        this.convertData(response)
       } catch (error) {
-        console.log(error)
+        console.log('Error retrieving data: ' + error)
       }
       this.reload()
+    },
+    convertData(users) {
+      try {
+        users.forEach(
+          (user) =>
+            (this.users = [
+              ...this.users,
+              {
+                gender: user.gender,
+                name: {
+                  title: user.name.title,
+                  first: user.name.first,
+                  last: user.name.last
+                },
+                email: user.email,
+                login: {
+                  uuid: user.login.uuid
+                },
+                phone: user.phone,
+                cell: user.cell,
+                picture: {
+                  large: user.picture.large,
+                  medium: user.picture.medium,
+                  thumbnail: user.picture.thumbnail
+                }
+              }
+            ])
+        )
+      } catch (error) {
+        console.log('Error forming data object: ' + error)
+      }
     }
   },
   created() {

@@ -1,7 +1,16 @@
 <template>
-  <a-card hoverable style="width: 300px">
+  <a-card
+    hoverable
+    :style="{
+      width: '70vw',
+      display: 'inline-flex',
+      justifyContent: 'center'
+    }"
+  >
     <!--    <h1>{{ user.name.first }}</h1>-->
-    <img alt="example" :src="user.picture.large" />
+    <a :href="user.picture.large" target="_blank">
+      <img alt="example" :src="user.picture.large" />
+    </a>
     <template class="ant-card-actions">
       <!--      <a-icon key="setting" type="setting" />-->
       <!--      <a-icon key="edit" type="edit" />-->
